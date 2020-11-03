@@ -1,0 +1,31 @@
+    <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="source" [disabled]="getdirection"
+    #search>
+  <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" [disabled]="getdirection"
+    placeholder="destination" #search1 type="text" >
+    <button (click)="getDirection()">DIRECTION</button>
+
+        <agm-map [latitude]="latitude" [longitude]="longitude" #gm>
+
+    <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+    (dragEnd)="markerDragEnd($event)" (mouseOver)="onMouseOver(infoWindow,gm)"
+    >
+    <agm-info-window [disableAutoPan]="false" #infoWindow>
+        <div> {{address}}
+
+     </div>
+    
+
+ </agm-info-window></agm-marker>
+  <agm-marker [latitude]="latitude1" [longitude]="longitude1" [markerDraggable]="true"
+    (dragEnd)="markerDragEnds($event)" (mouseOver)="onMouseOver1(infoWindow1,gm)">
+    <agm-info-window [disableAutoPan]="false" #infoWindow1>
+        <div> {{address1}}
+
+     </div>
+    
+
+ </agm-info-window></agm-marker>
+ <div *ngIf="show">
+    <agm-direction [origin]="dir.search" [destination]="dir.destination"></agm-direction>
+  </div>
+  </agm-map>
