@@ -1,7 +1,7 @@
 import { MapsAPILoader } from '@agm/core';
 import { Component, ElementRef, NgZone, OnInit, ViewChild ,AfterViewInit} from '@angular/core';
 import { MouseEvent } from '@agm/core';
-
+declare var google: any;
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -12,7 +12,6 @@ export class MapComponent implements OnInit {
   country: string;
   latitude: number;
   longitude: number;
-  google:any;
   zoom: number;
   address: any;
   latitude1: number=30.704649;
